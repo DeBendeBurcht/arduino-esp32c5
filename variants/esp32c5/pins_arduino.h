@@ -47,18 +47,18 @@ static const uint8_t STRAP_MTMS = 2; // MTMS (GPIO2, Physical Pin 4)
 
 
 // Pin Definitions
-#define PIN_0   0     // GPIO0,    XTAL_32K_P, LP_GPIO0, LP_UART_DTRN
-#define PIN_1   1     // GPIO1,    XTAL_32K_N, LP_GPIO1, LP_UART_DSRN, ADC1_CH0
-#define PIN_EN  3     // EN        (Enable/Reset)
-#define PIN_2   2     // GPIO2,    LP_GPIO2, MTMS, LP_UART_RTSN, ADC1_CH1, FSPIQ
-#define PIN_4   12    // GPIO12,   U0RXD
-#define PIN_5   3     // GPIO3,    LP_GPIO3, MTDI, LP_UART_CTSN, ADC1_CH2
-#define PIN_6   6     // GPIO6,    LP_GPIO6, LP_I2C_SDA, ADC1_CH5, FSPICLK
-#define PIN_7   7     // GPIO7,    LP_GPIO7, LP_I2C_SCL, FSPID
-#define PIN_11  11    // GPIO11,   U0TXD 
-#define PIN_12  26    // GPIO26
-#define PIN_13  27    // GPIO27    (Strapping Pin)
-#define PIN_14  28    // GPIO28    (Strapping Pin, Boot)
-#define PIN_15  4     // GPIO4,    LP_GPIO4, LP_UART_RXD, MTCK, ADC1_CH3, FSPIHD
-#define PIN_16  5     // GPIO5,    LP_GPIO5, LP_UART_TXD, MTD0, ADC1_CH4, FSPIWP
+//#define PIN_0   0     // GPIO0,    XTAL_32K_P, LP_GPIO0, LP_UART_DTRN
+//#define PIN_1   1     // GPIO1,    XTAL_32K_N, LP_GPIO1, LP_UART_DSRN, ADC1_CH0
+//#define PIN_EN  3     // EN        (Enable/Reset)
+//#define PIN_2   2     // GPIO2,    LP_GPIO2, MTMS, LP_UART_RTSN, ADC1_CH1, FSPIQ
+//#define PIN_4   12    // GPIO12,   U0RXD
+//#define PIN_5   3     // GPIO3,    LP_GPIO3, MTDI, LP_UART_CTSN, ADC1_CH2
+//#define PIN_6   6     // GPIO6,    LP_GPIO6, LP_I2C_SDA, ADC1_CH5, FSPICLK
+//#define PIN_7   7     // GPIO7,    LP_GPIO7, LP_I2C_SCL, FSPID
+//#define PIN_11  11    // GPIO11,   U0TXD 
+//#define PIN_12  26    // GPIO26
+//#define PIN_13  27    // GPIO27    (Strapping Pin)
+//#define PIN_14  28    // GPIO28    (Strapping Pin, Boot)
+//#define PIN_15  4     // GPIO4,    LP_GPIO4, LP_UART_RXD, MTCK, ADC1_CH3, FSPIHD
+//#define PIN_16  5     // GPIO5,    LP_GPIO5, LP_UART_TXD, MTD0, ADC1_CH4, FSPIWP
 

@@ -1,43 +1,64 @@
 #ifndef Pins_Arduino_h
 #define Pins_Arduino_h
 
-#define EXTERNAL_NUM_INTERRUPTS 29 // ESP32-C5 has up to 29 GPIOs
-#define NUM_DIGITAL_PINS        9  // Exposed GPIOs: 0,1,2,3,6,7,26,27,28
-#define NUM_ANALOG_INPUTS       5  // ADC1_CH0-CH3, CH5 (GPIO0-3, 6)
+#include <stdint.h>
+#include "soc/soc_caps.h"
 
-static const uint8_t PIN_0 = 0;   // Pin 10
-static const uint8_t PIN_1 = 1;   // Pin 11
-static const uint8_t PIN_2 = 2;   // Pin 12
-static const uint8_t PIN_3 = 3;   // Pin 13
-static const uint8_t PIN_6 = 6;   // Pin 15
-static const uint8_t PIN_7 = 7;   // Pin 16, strapping pin
-static const uint8_t PIN_26 = 26; // Pin 36, strapping pin
-static const uint8_t PIN_27 = 27; // Pin 37, strapping pin
-static const uint8_t PIN_28 = 28; // Pin 38, strapping pin
+// UART Pins (Standard UART0)
+static const uint8_t TX = 11;  // U0TXD (GPIO11, Physical Pin 11)
+static const uint8_t RX = 12;  // U0RXD (GPIO12, Physical Pin 5)
 
-static const uint8_t TX = 20;     // UART0 TX, pin 20
-static const uint8_t RX = 21;     // UART0 RX, pin 21
-static const uint8_t LP_TX = 14;  // LP UART TX, pin 14
-static const uint8_t LP_RX = 13;  // LP UART RX, pin 13
+// Low-Power UART Pins
+#define WIRE1_PIN_DEFINED
+static const uint8_t LP_TX = 5;  // LP_UART_TXD (GPIO5, Physical Pin 16)
+static const uint8_t LP_RX = 4;  // LP_UART_RXD (GPIO4, Physical Pin 15)
 
-static const uint8_t SDA = 0;     // GPIO0, pin 10
-static const uint8_t SCL = 1;     // GPIO1, pin 11
+// I2C Pins (Low-Power I2C)
+static const uint8_t SDA = 6;  // LP_I2C_SDA (GPIO6, Physical Pin 7)
+static const uint8_t SCL = 7;  // LP_I2C_SCL (GPIO7, Physical Pin 10)
 
-static const uint8_t SS = 7;      // Pin 16, strapping pin
-static const uint8_t MOSI = 6;    // Pin 15
-static const uint8_t MISO = 3;    // Pin 13
-static const uint8_t SCK = 2;     // Pin 12
+// SPI Pins (FSPI)
+static const uint8_t SS = 5;    // FSPIWP (GPIO5, Physical Pin 16)
+static const uint8_t MOSI = 7;  // FSPID (GPIO7, Physical Pin 10)
+static const uint8_t MISO = 2;  // FSPIQ (GPIO2, Physical Pin 4)
+static const uint8_t SCK = 6;   // FSPICLK (GPIO6, Physical Pin 7)
 
-static const uint8_t A0 = 0;      // ADC1_CH0, pin 10
-static const uint8_t A1 = 1;      // ADC1_CH1, pin 11
-static const uint8_t A2 = 2;      // ADC1_CH2, pin 12
-static const uint8_t A3 = 3;      // ADC1_CH3, pin 13
-static const uint8_t A5 = 6;      // ADC1_CH5, pin 15
+// ADC Pins
+static const uint8_t A0 = 1;  // ADC1_CH0 (GPIO1, Physical Pin 2)
+static const uint8_t A1 = 2;  // ADC1_CH1 (GPIO2, Physical Pin 4)
+static const uint8_t A2 = 3;  // ADC1_CH2 (GPIO3, Physical Pin 6)
+static const uint8_t A3 = 4;  // ADC1_CH3 (GPIO4, Physical Pin 15)
+static const uint8_t A4 = 5;  // ADC1_CH4 (GPIO5, Physical Pin 16)
+static const uint8_t A5 = 6;  // ADC1_CH5 (GPIO6, Physical Pin 7)
 
-#define LED_BUILTIN 2 // GPIO2, pin 12
+// Enable/Reset Pin
+static const uint8_t EN = 3;  // EN (Physical Pin 3)
 
-// Note: GPIO7, 26, 27, 28 are strapping pins; avoid using during boot
+// Strapping Pins (avoid using for general I/O unless necessary)
+static const uint8_t STRAP_27 = 27;  // GPIO27 (Physical Pin 13)
+static const uint8_t STRAP_28 = 28;  // GPIO28 (Physical Pin 14)
+static const uint8_t STRAP_7 = 7;    // GPIO7 (Physical Pin 10)
+static const uint8_t STRAP_MTMS = 2; // MTMS (GPIO2, Physical Pin 4)
 
-#include "pins_arduino_generic.h"
+#endif /* Pins_Arduino_h */
 
-#endif
+
+
+
+
+// Pin Definitions
+#define PIN_0   0     // GPIO0,    XTAL_32K_P, LP_GPIO0, LP_UART_DTRN
+#define PIN_1   1     // GPIO1,    XTAL_32K_N, LP_GPIO1, LP_UART_DSRN, ADC1_CH0
+#define PIN_EN  3     // EN        (Enable/Reset)
+#define PIN_2   2     // GPIO2,    LP_GPIO2, MTMS, LP_UART_RTSN, ADC1_CH1, FSPIQ
+#define PIN_4   12    // GPIO12,   U0RXD
+#define PIN_5   3     // GPIO3,    LP_GPIO3, MTDI, LP_UART_CTSN, ADC1_CH2
+#define PIN_6   6     // GPIO6,    LP_GPIO6, LP_I2C_SDA, ADC1_CH5, FSPICLK
+#define PIN_7   7     // GPIO7,    LP_GPIO7, LP_I2C_SCL, FSPID
+#define PIN_11  11    // GPIO11,   U0TXD 
+#define PIN_12  26    // GPIO26
+#define PIN_13  27    // GPIO27    (Strapping Pin)
+#define PIN_14  28    // GPIO28    (Strapping Pin, Boot)
+#define PIN_15  4     // GPIO4,    LP_GPIO4, LP_UART_RXD, MTCK, ADC1_CH3, FSPIHD
+#define PIN_16  5     // GPIO5,    LP_GPIO5, LP_UART_TXD, MTD0, ADC1_CH4, FSPIWP
+
